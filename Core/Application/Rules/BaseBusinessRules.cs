@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.Application.Rules
 {
-    internal class BaseBusinessRules
+    public abstract class BaseBusinessRules
     {
     }
 }

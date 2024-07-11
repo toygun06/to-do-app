@@ -7,13 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Application\Pipelines\Validation\" />
-    <Folder Include="CrossCuttingConcerns\Exceptions\Extensions\" />
-    <Folder Include="CrossCuttingConcerns\Exceptions\Handlers\" />
-    <Folder Include="CrossCuttingConcerns\Exceptions\HttpProblemDetails\" />
-    <Folder Include="CrossCuttingConcerns\Exceptions\Types\" />
-    <Folder Include="Persistence\Repositories\" />
-    <Folder Include="Persistence\Paging\" />
     <Folder Include="Utilities\" />
   </ItemGroup>
 

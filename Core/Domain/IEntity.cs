@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.Domain
 {
-    internal class IEntity
+    public interface IEntity
     {
     }
 }
