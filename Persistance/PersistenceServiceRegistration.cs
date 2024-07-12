@@ -1,11 +1,7 @@
-﻿using Application.Repositories;
-using Application.Services;
+﻿
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Persistence.Contexts;
-using Persistence.Repositories;
-using Persistence.Services;
 
 namespace Persistence
 {
