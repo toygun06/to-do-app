@@ -1,7 +1,10 @@
 ﻿
+using Application.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Persistance.Contexts;
+using Persistance.Repositories;
 
 namespace Persistence
 {
@@ -11,42 +14,15 @@ namespace Persistence
         {
             // Db
 
-            //services.AddDbContext<AppointmentSystemContext>(opt =>
-            //{
-            //    opt.UseSqlServer(configuration.GetConnectionString("SqlServer"));
-            //});
+            services.AddDbContext<ToDoContext>(opt =>
+            {
+                opt.UseSqlServer(configuration.GetConnectionString("SqlServer"));
+            });
 
             ////IoC Inversion Of Control
-            //services.AddScoped<IAuthService, AuthService>();
 
-            //services.AddScoped<IUserRepository, UserRepository>();
-
-
-            //services.AddScoped<ITitleRepository, TitleRepository>();
-
-            //services.AddScoped<IPatientRepository, PatientRepository>();
-            //services.AddScoped<IPatientService, PatientService>();
-
-            //services.AddScoped<IDoctorRepository, DoctorRepository>();
-            //services.AddScoped<IBranchRepository, BranchRepository>();
-
-            //services.AddScoped<IDoctorScheduleRepository, DoctorScheduleRepository>();
-
-            //services.AddScoped<IUserOperationClaimRepository, UserOperationClaimRepository>();
-            //services.AddScoped<IUserOperationClaimService, UserOperationClaimService>();
-            //services.AddScoped<IUserService, UserService>();
-
-            //services.AddScoped<IAppointmentIntervalRepository, AppointmentIntervalRepository>();
-            //services.AddScoped<IAppointmentIntervalService, AppointmentIntervalService>();
-
-            //services.AddScoped<IAppointmentRepository, AppointmentRepository>();
-            //services.AddScoped<IAppointmentService, AppointmentService>();
-
-            //services.AddScoped<IFeedbackRepository, FeedbackRepository>();
-
-            //services.AddScoped<IVerificationCodeRepository, VerificationCodeRepository>();
-
-            //services.AddScoped<IReportRepository, ReportRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<ITaskRepository, TaskRepository>();
 
             //Repositories & Services
             return services;
