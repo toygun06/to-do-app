@@ -10,5 +10,9 @@ namespace Domain.Entities
     public class User : BaseUser
     {
         public virtual ICollection<Task> Tasks {get; set;}
+        public User() 
+        {
+            Tasks = new HashSet<Task>();
+        }
     }
 }

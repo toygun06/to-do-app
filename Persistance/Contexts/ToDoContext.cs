@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Persistance.Configurations;
 using Task = Domain.Entities.Task;
 
 namespace Persistance.Contexts
@@ -16,13 +17,8 @@ namespace Persistance.Contexts
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.Entity<User>().ToTable("Users");
-            modelBuilder.Entity<Task>().ToTable("Tasks");
-
-            modelBuilder.Entity<Task>()
-                .HasOne(t => t.User)
-                .WithMany(u => u.Tasks)
-                .HasForeignKey(t => t.User.Id);
+            modelBuilder.ApplyConfiguration(new UserConfiguration());
+            modelBuilder.ApplyConfiguration(new TaskConfiguration());
 
 
         }
