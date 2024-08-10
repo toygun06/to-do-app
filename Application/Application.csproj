@@ -17,7 +17,6 @@
     <Folder Include="Features\Tasks\Validations\" />
     <Folder Include="Features\Tasks\Profiles\" />
     <Folder Include="Features\Tasks\Rules\" />
-    <Folder Include="Features\Users\Commands\Add\" />
     <Folder Include="Features\Users\Commands\Delete\" />
     <Folder Include="Features\Users\Commands\Update\" />
     <Folder Include="Features\Users\Constants\" />

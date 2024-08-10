@@ -21,7 +21,7 @@ namespace Core.Security.JWT
             _tokenOptions = Configuration.GetSection("TokenOptions").Get<TokenOptions>();
         }
 
-        public AccessToken CreateToken(BaseUser user, IList<OperationClaim> operationClaims)
+        public AccessToken CreateToken(BaseUser user, IList<OperationClaim>? operationClaims = null)
         {
             _accessTokenExpiration = DateTime.Now.AddMinutes(_tokenOptions.AccessTokenExpiration);
             SecurityKey securityKey = SecurityKeyHelper.CreateSecurityKey(_tokenOptions.SecurityKey);
@@ -59,7 +59,14 @@ namespace Core.Security.JWT
             claims.AddEmail(user.Email);
             claims.AddPhone(user.PhoneNumber);
             claims.AddName($"{user.FirstName} {user.LastName}");
-            claims.AddRoles(operationClaims.Select(c => c.Name).ToArray());
+            if (operationClaims != null && operationClaims.Any())
+            {
+                claims.AddRoles(operationClaims.Select(c => c.Name).ToArray());
+            }
+            else
+            {
+                claims.AddRoles(new[] { "User" }); // Default role
+            }
             return claims;
         }
 

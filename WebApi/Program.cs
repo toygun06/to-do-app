@@ -3,6 +3,7 @@ using Core;
 using Core.CrossCuttingConcers.Exceptions.Extensions;
 using Core.Security.Encryption;
 using Core.Security.JWT;
+using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.OpenApi.Models;
 using Persistence;
