@@ -14,5 +14,10 @@ namespace Domain.Entities
         {
             Tasks = new HashSet<Task>();
         }
+
+        public static implicit operator bool(User? v)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
