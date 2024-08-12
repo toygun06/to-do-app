@@ -7,15 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Tasks\Commands\Add\" />
     <Folder Include="Features\Tasks\Commands\Delete\" />
     <Folder Include="Features\Tasks\Commands\Update\" />
     <Folder Include="Features\Tasks\Constants\" />
     <Folder Include="Features\Tasks\Queries\GetAllByPaginated\" />
     <Folder Include="Features\Tasks\Queries\GetByUserId\" />
     <Folder Include="Features\Tasks\Queries\GetById\" />
-    <Folder Include="Features\Tasks\Validations\" />
-    <Folder Include="Features\Tasks\Profiles\" />
     <Folder Include="Features\Tasks\Rules\" />
     <Folder Include="Features\Users\Validations\" />
   </ItemGroup>

@@ -38,6 +38,8 @@ namespace Application.Features.Users.Commands.Update
                 //Mapper kullanarak gerekli alanların kopyalanması
                 var updatedUser = _mapper.Map(request, existingUser);
 
+                updatedUser.UpdatedDate = DateTime.Now;
+
                 //passwordHash ve passwordSalt alanlarının üzerine yazılmasını engelleme
                 updatedUser.PasswordHash = existingUser.PasswordHash;
                 updatedUser.PasswordSalt = existingUser.PasswordSalt;
