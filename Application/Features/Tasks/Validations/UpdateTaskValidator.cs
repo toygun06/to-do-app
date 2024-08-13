@@ -1,12 +1,11 @@
-﻿using Application.Features.Tasks.Commands.Add;
-using Application.Features.Tasks.Commands.Update;
+﻿using Application.Features.Tasks.Commands.Update;
 using FluentValidation;
 
 namespace Application.Features.Tasks.Validations
 {
-    public class AddTaskValidator : AbstractValidator<AddTaskCommand>
+    public class UpdateTaskValidator : AbstractValidator<UpdateTaskCommand>
     {
-        public AddTaskValidator()
+        public UpdateTaskValidator()
         {
             RuleFor(task => task.Title)
                 .NotEmpty()

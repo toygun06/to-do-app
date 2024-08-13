@@ -16,7 +16,7 @@ namespace WebApi.Controllers
         }
 
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody] UserUpdateCommand command)
+        public async Task<IActionResult> Update([FromBody] UpdateUserCommand command)
         {
             var result = await _mediator.Send(command);
             return Ok(result);

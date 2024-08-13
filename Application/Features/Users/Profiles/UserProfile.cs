@@ -13,8 +13,8 @@ namespace Application.Features.Users.Profiles
             CreateMap<User, UserSoftDeleteCommand>().ReverseMap();
             CreateMap<User, UserSoftDeleteResponse>().ReverseMap();
 
-            CreateMap<User, UserUpdateCommand>().ReverseMap();
-            CreateMap<User, UserUpdateResponse>().ReverseMap();
+            CreateMap<User, UpdateUserCommand>().ReverseMap();
+            CreateMap<User, UpdateUserResponse>().ReverseMap();
 
             CreateMap<User, GetUserByIdQuery>().ReverseMap();
             CreateMap<User, GetUserByIdResponse>().ReverseMap();

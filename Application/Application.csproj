@@ -7,13 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Tasks\Commands\Delete\" />
-    <Folder Include="Features\Tasks\Commands\Update\" />
-    <Folder Include="Features\Tasks\Constants\" />
     <Folder Include="Features\Tasks\Queries\GetAllByPaginated\" />
     <Folder Include="Features\Tasks\Queries\GetByUserId\" />
     <Folder Include="Features\Tasks\Queries\GetById\" />
-    <Folder Include="Features\Tasks\Rules\" />
     <Folder Include="Features\Users\Validations\" />
   </ItemGroup>
 

@@ -5,7 +5,7 @@ using MediatR;
 
 namespace Application.Features.Users.Commands.Update
 {
-    public class UserUpdateCommand : IRequest<UserUpdateResponse>
+    public class UpdateUserCommand : IRequest<UpdateUserResponse>
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
@@ -13,20 +13,20 @@ namespace Application.Features.Users.Commands.Update
         public string Email { get; set; }
         public string PhoneNumber { get; set; }
 
-        public class UserUpdateCommandHandler : IRequestHandler<UserUpdateCommand, UserUpdateResponse>
+        public class UpdateUserCommandHandler : IRequestHandler<UpdateUserCommand, UpdateUserResponse>
         {
             private readonly IUserRepository _userRepository;
             private readonly IMapper _mapper;
             private readonly UserBusinessRules _userBusinessRules;
 
-            public UserUpdateCommandHandler(IUserRepository userRepository, IMapper mapper, UserBusinessRules userBusinessRules)
+            public UpdateUserCommandHandler(IUserRepository userRepository, IMapper mapper, UserBusinessRules userBusinessRules)
             {
                 _userRepository = userRepository;
                 _mapper = mapper;
                 _userBusinessRules = userBusinessRules;
             }
 
-            public async Task<UserUpdateResponse> Handle(UserUpdateCommand request, CancellationToken cancellationToken)
+            public async Task<UpdateUserResponse> Handle(UpdateUserCommand request, CancellationToken cancellationToken)
             {
                 var existingUser = await _userRepository.GetAsync(
                     predicate: x => x.Id == request.Id,
@@ -46,7 +46,7 @@ namespace Application.Features.Users.Commands.Update
 
                 //Güncellenmiş hastanın veritabanına kaydı
                 await _userRepository.UpdateAsync(updatedUser);
-                UserUpdateResponse response = _mapper.Map<UserUpdateResponse>(updatedUser);
+                UpdateUserResponse response = _mapper.Map<UpdateUserResponse>(updatedUser);
 
                 return response;
             }

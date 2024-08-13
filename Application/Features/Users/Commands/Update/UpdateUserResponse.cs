@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.Features.Users.Commands.Update
 {
-    public class UserUpdateResponse
+    public class UpdateUserResponse
     {
         public int Id { get; set; }
         public string FirstName { get; set; }
