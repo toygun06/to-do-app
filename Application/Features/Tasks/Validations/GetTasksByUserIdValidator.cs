@@ -16,7 +16,7 @@ namespace Application.Features.Tasks.Validations
                 .NotNull()
                 .NotEmpty()
                 .GreaterThan(0)
-                .WithMessage("Id sıfırdan büyük ve boş olmamalıdır.");
+                .WithMessage("Id sıfır ve boş olmamalıdır.");
         }
     }
 }

@@ -3,6 +3,7 @@ using Application.Features.Tasks.Commands.Update;
 using Application.Features.Tasks.Commands.UpdateTaskStatus;
 using Application.Features.Tasks.Queries.GetById;
 using Application.Features.Tasks.Queries.GetByUserId;
+using Application.Features.Tasks.Queries.GetPaginatedByUserId;
 using AutoMapper;
 using Domain.Dtos;
 using Task = Domain.Entities.Task;
@@ -29,6 +30,8 @@ namespace Application.Features.Tasks.Profiles
             CreateMap<Task, GetTasksByUserIdQuery>().ReverseMap(); //Gerekmeyebilir
             CreateMap<List<Task>, GetTasksByUserIdResponse>()
                 .ForMember(dest => dest.Tasks, opt => opt.MapFrom(src => src));
+
+            CreateMap<Task, GetPaginatedTasksByUserIdResponse>();
         }
     }
 }
