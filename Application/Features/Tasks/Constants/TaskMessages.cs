@@ -23,5 +23,13 @@ namespace Application.Features.Tasks.Constants
                 return "Silme işlemi başarılı!";
             }
         }
+
+        public static string TaskNotFoundOfUser
+        {
+            get
+            {
+                return "Bu kullanıcıya ait görev bulunamadı!";
+            }
+        }
     }
 }

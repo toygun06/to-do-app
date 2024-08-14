@@ -7,7 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Application.Features.Users.Queries.GetById
 {
-    public class GetUserByIdQuery :IRequest<GetUserByIdResponse>
+    public class GetUserByIdQuery : IRequest<GetUserByIdResponse>
     {
         public int Id { get; set; }
 

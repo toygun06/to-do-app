@@ -8,8 +8,6 @@
 
   <ItemGroup>
     <Folder Include="Features\Tasks\Queries\GetAllByPaginated\" />
-    <Folder Include="Features\Tasks\Queries\GetByUserId\" />
-    <Folder Include="Features\Tasks\Queries\GetById\" />
     <Folder Include="Features\Users\Validations\" />
   </ItemGroup>
 

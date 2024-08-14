@@ -1,7 +1,10 @@
 ﻿using Application.Features.Tasks.Commands.Add;
 using Application.Features.Tasks.Commands.Update;
 using Application.Features.Tasks.Commands.UpdateTaskStatus;
+using Application.Features.Tasks.Queries.GetById;
+using Application.Features.Tasks.Queries.GetByUserId;
 using AutoMapper;
+using Domain.Dtos;
 using Task = Domain.Entities.Task;
 
 namespace Application.Features.Tasks.Profiles
@@ -19,6 +22,13 @@ namespace Application.Features.Tasks.Profiles
             CreateMap<Task, UpdateTaskStatusCommand>().ReverseMap();
             CreateMap<Task, UpdateTaskStatusResponse>().ReverseMap();
 
+            CreateMap<Task, GetTaskByIdQuery>().ReverseMap(); //Gerekmeyebilir
+            CreateMap<Task, GetTaskByIdResponse>().ReverseMap();
+
+            CreateMap<Task, TaskDto>();
+            CreateMap<Task, GetTasksByUserIdQuery>().ReverseMap(); //Gerekmeyebilir
+            CreateMap<List<Task>, GetTasksByUserIdResponse>()
+                .ForMember(dest => dest.Tasks, opt => opt.MapFrom(src => src));
         }
     }
 }
