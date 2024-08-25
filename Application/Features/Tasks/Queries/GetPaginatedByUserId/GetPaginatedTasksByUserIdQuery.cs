@@ -3,6 +3,7 @@ using Application.Repositories;
 using AutoMapper;
 using Core.Persistence.Paging;
 using MediatR;
+using Task = Domain.Entities.Task;
 
 namespace Application.Features.Tasks.Queries.GetPaginatedByUserId
 {
@@ -25,14 +26,22 @@ namespace Application.Features.Tasks.Queries.GetPaginatedByUserId
                 _taskBusinessRules = taskBusinessRules;
             }
 
-            public async Task<IPaginate<GetPaginatedTasksByUserIdResponse>> Handle(GetPaginatedTasksByUserIdQuery request, CancellationToken cancellationToken)
+            public async Task<IPaginate<GetPaginatedTasksByUserIdResponse>> Handle(GetPaginatedTasksByUserIdQuery query, CancellationToken cancellationToken)
             {
+                if (query.PageIndex < 1) query.PageIndex = 1;
+                if (query.PageSize < 1) query.PageSize = 10;
+
+                List<Task> ruled = await _taskBusinessRules.PaginatedTaskCheckByUserId(query.UserId);
+
                 var tasks = await _taskRepository.GetListAsync(
-                    index: request.PageIndex,
-                    size: request.PageSize,
+                    predicate: x => ruled.Select(r => r.Id).Contains(x.Id),
+                    index: query.PageIndex,
+                    size: query.PageSize,
                     enableTracking: false,
                     cancellationToken: cancellationToken
                     );
+
+
 
                 var result = _mapper.Map<List<GetPaginatedTasksByUserIdResponse>>(tasks.Items);
                 return new Paginate<GetPaginatedTasksByUserIdResponse>(result.AsQueryable(), tasks.Pagination);

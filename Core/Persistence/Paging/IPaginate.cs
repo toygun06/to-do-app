@@ -12,6 +12,8 @@ namespace Core.Persistence.Paging
     {
         public IQueryable<T> Items { get; }
         public PaginationInfo Pagination { get; }
+
+        //List<global::Domain.Entities.Task> ToList();
     }
 }
  

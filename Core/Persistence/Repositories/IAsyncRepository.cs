@@ -20,7 +20,7 @@ namespace Core.Persistence.Repositories
             Expression<Func<TEntity, bool>>? predicate = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>>? orderBy = null,
             Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>>? include = null,
-            int index = 0,
+            int index = 1,
             int size = 10,
             bool enableTracking = true,
             CancellationToken cancellationToken = default

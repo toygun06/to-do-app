@@ -28,5 +28,12 @@ namespace Application.Features.Tasks.Rules
             if (tasks == null || !tasks.Any()) throw new BusinessException(TaskMessages.TaskNotFoundOfUser);
             return tasks.ToList();
         }
+
+        public async Task<List<Task>> PaginatedTaskCheckByUserId(int UserId)
+        {
+            var tasks= await _taskRepository.GetListAsync(predicate: x => x.UserId == UserId);
+            if (tasks == null || !tasks.Items.Any()) throw new BusinessException(TaskMessages.TaskNotFoundOfUser);
+            return tasks.Items.ToList();
+        }
     }
 }
