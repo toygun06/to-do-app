@@ -31,7 +31,10 @@ namespace Application.Features.Tasks.Rules
 
         public async Task<List<Task>> PaginatedTaskCheckByUserId(int UserId)
         {
-            var tasks= await _taskRepository.GetListAsync(predicate: x => x.UserId == UserId);
+            var tasks= await _taskRepository.GetListAsync(
+                predicate: x => x.UserId == UserId,
+                size: int.MaxValue
+                );
             if (tasks == null || !tasks.Items.Any()) throw new BusinessException(TaskMessages.TaskNotFoundOfUser);
             return tasks.Items.ToList();
         }

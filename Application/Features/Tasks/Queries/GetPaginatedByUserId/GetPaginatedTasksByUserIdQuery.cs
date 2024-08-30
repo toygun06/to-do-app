@@ -10,8 +10,8 @@ namespace Application.Features.Tasks.Queries.GetPaginatedByUserId
     public class GetPaginatedTasksByUserIdQuery : IRequest<IPaginate<GetPaginatedTasksByUserIdResponse>>
     {
         public int UserId { get; set; }
-        public int PageIndex { get; set; } = 1;
-        public int PageSize { get; set; } = 10;
+        public int PageIndex { get; set; }
+        public int PageSize { get; set; }
 
         public class GetPaginatedTasksByUserIdQueryHandler : IRequestHandler<GetPaginatedTasksByUserIdQuery, IPaginate<GetPaginatedTasksByUserIdResponse>>
         {
@@ -19,10 +19,10 @@ namespace Application.Features.Tasks.Queries.GetPaginatedByUserId
             private readonly ITaskRepository _taskRepository;
             private readonly TaskBusinessRules _taskBusinessRules;
 
-            public GetPaginatedTasksByUserIdQueryHandler(IMapper mapper, ITaskRepository tasRepository, TaskBusinessRules taskBusinessRules)
+            public GetPaginatedTasksByUserIdQueryHandler(IMapper mapper, ITaskRepository taskRepository, TaskBusinessRules taskBusinessRules)
             {
                 _mapper = mapper;
-                _taskRepository = tasRepository;
+                _taskRepository = taskRepository;
                 _taskBusinessRules = taskBusinessRules;
             }
 
@@ -37,10 +37,10 @@ namespace Application.Features.Tasks.Queries.GetPaginatedByUserId
                     predicate: x => ruled.Select(r => r.Id).Contains(x.Id),
                     index: query.PageIndex,
                     size: query.PageSize,
+
                     enableTracking: false,
                     cancellationToken: cancellationToken
                     );
-
 
 
                 var result = _mapper.Map<List<GetPaginatedTasksByUserIdResponse>>(tasks.Items);
