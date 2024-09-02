@@ -4,7 +4,7 @@ using Application.Features.Tasks.Commands.Update;
 using Application.Features.Tasks.Commands.UpdateTaskStatus;
 using Application.Features.Tasks.Queries.GetById;
 using Application.Features.Tasks.Queries.GetByUserId;
-using Application.Features.Tasks.Queries.GetPaginatedByUserId;
+using Application.Features.Tasks.Queries.GetPaginatedFilteredByUserId;
 using Microsoft.AspNetCore.Mvc;
 using WebAPI.Controllers;
 
@@ -55,7 +55,7 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetPaginatedTaskByUserId([FromQuery] GetPaginatedTasksByUserIdQuery query)
+        public async Task<IActionResult> GetPaginatedTaskByUserId([FromQuery] GetPaginatedFilteredTasksByUserIdQuery query)
         {
             var result = await _mediator.Send(query);
             return Ok(result);

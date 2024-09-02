@@ -8,5 +8,6 @@ namespace Application.Features.Tasks.Commands.Add
         public string Title { get; set; }
         public string Description { get; set; }
         public TaskStatus Status { get; set; }
+        public DateTime CreatedDate { get; set; }
     }
 }

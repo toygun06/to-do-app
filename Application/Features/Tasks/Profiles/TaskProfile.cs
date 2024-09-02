@@ -31,7 +31,7 @@ namespace Application.Features.Tasks.Profiles
             CreateMap<List<Task>, GetTasksByUserIdResponse>()
                 .ForMember(dest => dest.Tasks, opt => opt.MapFrom(src => src));
 
-            CreateMap<Task, GetPaginatedTasksByUserIdResponse>();
+            CreateMap<Task, GetPaginatedFilteredTasksByUserIdResponse>();
         }
     }
 }
