@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell", // Tür olarak shell kullanıyoruz
+      "command": "dotnet",
+      "args": [
+        "build",
+        "/Users/toygun/repo/to-do-app/WebApi/WebApi.csproj" // Derleme komutu için proje dosyasının yolu
+      ],
+      "problemMatcher": "$karma-jasmine2" // .NET derleyici hatalarını tanıyan problem matcher
+    }
+  ]
+}
